@@ -1,5 +1,4 @@
-import 'package'
-    ':flutter/material.dart';
+import 'package:flutter/material.dart';
 import '../model/compromisso.dart';
 import 'add_compromisso_screen.dart';
 import 'home_screen.dart';
@@ -75,7 +74,13 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Central de Compromissos"),
+        title: Text(
+        _currentIndex == 0
+            ? 'Compromissos (${compromissos.length})'
+            : _currentIndex == 1
+                ? 'Adicionar Compromisso'
+                : 'Calendário',
+      ),
         backgroundColor: const Color(0xFF81C784),
       ),
       body: _pages[_currentIndex],
